@@ -17,12 +17,25 @@ body {
 }
 
 .grid-container {
-    min-width: 80%;
+    /* min-width: 80%;
     min-height: 80%;
     display: grid;
-    background-color: white;
+    /* background-color: white; */
+    height: 60vh;
+    width: 60vw;
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
     border: 1px solid red;
 }
+.grid-item {
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+
 /*
 #two {
     gap: 5px;
@@ -128,16 +141,14 @@ body {
     grid-row-gap: 1px;
 }
 */
-.grid-item {
-    width: 100%;
-    height: 100%;
-    background: white;
-}
 
 .choose-size {
     margin-top: 10px;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 90%;
+    position: absolute;
+    margin-bottom: 5vh;
+    bottom: 0;
 }
 .choose-size p {
     color: white;
@@ -148,14 +159,11 @@ body {
 
 .grid-sizes {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    height: 100px;
+    justify-content: space-around;
 }
 
 .grid-sizes button {
-    width: 55%;
+    width: 12%;
     height: 25%;
     cursor: pointer;
 }
