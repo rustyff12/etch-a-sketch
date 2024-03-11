@@ -14,3 +14,7 @@ gridButtons.forEach((button) => {
         console.log("clicked");
     });
 });
+
+function dynamicGrid() {
+    //
+}

@@ -8,7 +8,7 @@
 
 body {
     background: black;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -16,6 +16,64 @@ body {
     flex-direction: column;
 }
 
+.grid-container {
+    min-width: 80%;
+    min-height: 80%;
+    display: grid;
+    background-color: white;
+    border: 1px solid red;
+}
+/*
+#two {
+    gap: 5px;
+}
+#four {
+    gap: 4px;
+}
+#eight {
+    gap: 2px;
+}
+#sixteen {
+    gap: 2px;
+}
+#thirty-two {
+    gap: 1px;
+}
+#sixty-four {
+    gap: 1px;
+}
+.grid-item {
+    background: white;
+}
+
+.grid-container#two .grid-item {
+    width: calc(50% - 2.5px);
+    height: calc(50% - 2.5px);
+}
+.grid-container#four .grid-item {
+    width: calc(24% - 2px);
+    height: calc(24% - 2px);
+}
+.grid-container#eight .grid-item {
+    width: calc(12% - 1.5px);
+    height: calc(12% - 1.5px);
+}
+.grid-container#sixteen .grid-item {
+    width: calc(6% - 1.5px);
+    height: calc(6% - 1.5px);
+}
+.grid-container#thirty-two .grid-item {
+    width: calc(3.125% - 1.5px);
+    height: calc(3.125% - 1.5px);
+}
+
+.grid-container#sixty-four .grid-item {
+    width: calc((100% / 64) - 1px);
+    height: calc((100% / 64) - 1px);
+}
+*/
+/* For Grid */
+/*
 .grid-container {
     height: 60vh;
     width: 60vw;
@@ -27,7 +85,7 @@ body {
     border: 1px solid red;
 }
 
-.grid-container#two {
+#two {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -35,41 +93,41 @@ body {
     grid-row-gap: 5px;
 }
 
-.grid-container#four {
+#four {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 4px;
     grid-row-gap: 4px;
 }
 
-.grid-container#eight {
+#eight {
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
     grid-column-gap: 2px;
     grid-row-gap: 2px;
 }
 
-.grid-container#sixteen {
+#sixteen {
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
     grid-column-gap: 2px;
     grid-row-gap: 2px;
 }
 
-.grid-container#thirty-two {
+#thirty-two {
     grid-template-columns: repeat(32, 1fr);
     grid-template-rows: repeat(32, 1fr);
     grid-column-gap: 1px;
     grid-row-gap: 1px;
 }
 
-.grid-container#sixty-four {
+#sixty-four {
     grid-template-columns: repeat(64, 1fr);
     grid-template-rows: repeat(64, 1fr);
     grid-column-gap: 1px;
     grid-row-gap: 1px;
 }
-
+*/
 .grid-item {
     width: 100%;
     height: 100%;
@@ -79,6 +137,7 @@ body {
 .choose-size {
     margin-top: 10px;
     border: 1px solid green;
+    width: 90%;
 }
 .choose-size p {
     color: white;
