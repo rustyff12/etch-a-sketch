@@ -65,6 +65,7 @@ body {
     grid-area: 5 / 2 / 6 / 5;
     margin-top: 10px;
     width: 100%;
+    display: block;
 }
 .choose-size p {
     color: var(--clr-white);
@@ -85,7 +86,7 @@ body {
     justify-content: space-around;
 }
 
-.grid-sizes button {
+button {
     width: 12%;
     height: 25%;
     cursor: pointer;
