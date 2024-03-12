@@ -13,7 +13,7 @@ const div = document.createElement("div");
 let currentGridSze = 0;
 let backgroundClr = "var(--clr-black)";
 // Grid size
-gridButtonSize.forEach((button) => {
+/* gridButtonSize.forEach((button) => {
     button.addEventListener("click", (e) => {
         const size = e.target.id;
         if (size === "grid-4") {
@@ -33,6 +33,18 @@ gridButtonSize.forEach((button) => {
             currentGridSze = 64;
         }
     });
+}); */
+const gridSize = document.querySelector("#grid-size");
+gridSize.addEventListener("change", (e) => {
+    const gridSizeText = document.querySelector("#grid-size-text");
+    currentGridSze = e.target.value;
+    gridSizeText.innerText = `Current size: ${e.target.value} x ${e.target.value}`;
+    console.log(currentGridSze);
+});
+
+const confirmSize = document.querySelector("#confirm");
+confirmSize.addEventListener("click", () => {
+    dynamicGrid(currentGridSze);
 });
 
 // Dynamic sized grid
@@ -42,7 +54,7 @@ function dynamicGrid(num) {
     current.forEach((div) => div.remove());
     gridContainer.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
     gridContainer.style.gridTemplateRows = `repeat(${num}, 1fr)`;
-    // gridContainer.style.gap = `10px`;
+    // gridContainer.style.gap = `1px`;
     let squared = num * num;
     for (let i = 0; i < squared; i++) {
         let div = document.createElement("div");
@@ -50,8 +62,6 @@ function dynamicGrid(num) {
         gridContainer.appendChild(div);
     }
 }
-
-dynamicGrid(currentGridSze);
 
 // Change color
 gridButtonColor.forEach((button) => {

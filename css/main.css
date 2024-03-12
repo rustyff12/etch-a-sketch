@@ -80,7 +80,10 @@ body {
     justify-content: space-around;
     gap: 10px;
 }
-
+.sizes {
+    display: flex;
+    flex-direction: column;
+}
 .grid-sizes div {
     display: flex;
     justify-content: space-around;
