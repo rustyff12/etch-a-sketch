@@ -1,5 +1,5 @@
 const gridContainer = document.querySelector(".grid-container");
-
+let sketchDivs = document.querySelectorAll(".grid-item");
 const gridButtons = document.querySelectorAll(".grid-button");
 const grid4 = document.querySelector("#grid-4");
 const grid8 = document.querySelector("#grid-8");
@@ -32,7 +32,7 @@ function dynamicGrid(num) {
     current.forEach((div) => div.remove());
     gridContainer.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
     gridContainer.style.gridTemplateRows = `repeat(${num}, 1fr)`;
-    // gridContainer.style.gap = `5px`;
+    // gridContainer.style.gap = `10px`;
     let squared = num * num;
     for (let i = 0; i < squared; i++) {
         let div = document.createElement("div");
@@ -42,3 +42,10 @@ function dynamicGrid(num) {
 }
 
 dynamicGrid(4);
+
+gridContainer.addEventListener("mouseover", (e) => {
+    const hoverDiv = e.target;
+    if (hoverDiv.classList.contains("grid-item")) {
+        hoverDiv.style.backgroundColor = "black";
+    }
+});
