@@ -160,30 +160,96 @@ h1 {
     border: 1px solid var(--clr-red);
     background: var(--clr-red);
 }
-/*
-@keyframes rainbow {
-    0% {
-        background-color: var(--clr-party-1);
+
+@media screen and (min-width: 550px) {
+    .body-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    14.3% {
-        background-color: var(--clr-party-2);
+
+    .grid-container {
+        width: 65%;
+        height: 50%;
     }
-    28.6% {
-        background-color: var(--clr-party-3);
+}
+@media screen and (min-width: 700px) {
+    .body-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    42.9% {
-        background-color: var(--clr-party-4);
+
+    .grid-container {
+        width: 65%;
+        height: 50%;
     }
-    57.1% {
-        background-color: var(--clr-party-5);
+
+    .sizes {
+        align-items: center;
     }
-    71.4% {
-        background-color: var(--clr-party-6);
+
+    .sizes input {
+        width: 60%;
     }
-    85.7% {
-        background-color: var(--clr-party-7);
+
+    .grid-size-buttons button {
+        width: 25%;
     }
-    100% {
-        background-color: var(--clr-party-1);
+}
+
+@media screen and (min-width: 1000px) {
+    .body-container {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: 0.3fr repeat(2, 1fr);
+        gap: 0px 0px;
+        grid-auto-flow: row;
     }
-} */
+
+    .header {
+        grid-area: 1 / 1 / 2 / 9;
+        font-size: 1.75rem;
+    }
+
+    .grid-container {
+        grid-area: 2 / 1 / 4 / 6;
+        height: 80%;
+        width: 85%;
+    }
+
+    .choose-size {
+        grid-area: 2 / 6 / 4 / 9;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .grid-size-buttons,
+    .sizes,
+    .colors {
+        height: 20%;
+    }
+
+    .sizes p,
+    .colors label {
+        font-size: 1.25rem;
+    }
+
+    .sizes label {
+        font-size: 1.15rem;
+    }
+
+    .colors input {
+        height: 50%;
+        width: 50%;
+    }
+
+    .grid-size-buttons button {
+        width: 45%;
+        height: 45%;
+        font-size: 2rem;
+    }
+}
