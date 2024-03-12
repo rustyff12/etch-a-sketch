@@ -11,26 +11,32 @@
     </head>
     <body>
         <div class="body-container">
+            <h1>Etch-a-Sketch</h1>
+
             <div class="grid-container"></div>
 
             <div class="choose-size">
                 <div class="sizes">
-                    <p>Please Choose a grid size</p>
+                    <p>Please Choose a grid size and color</p>
                     <label id="grid-size-text" for="grid-size"
-                        >Current size:
+                        >Current size: 50 x 50
                     </label>
                     <input id="grid-size" type="range" min="4" max="100" />
-                    <div class="grid-size-buttons">
-                        <button class="confirm" id="confirm">Confirm</button>
-                        <button class="reset" id="reset">Reset</button>
-                    </div>
                 </div>
+
                 <div class="colors">
-                    <button class="grid-button-color" id="black">Black</button>
-                    <button class="grid-button-color" id="red">Red</button>
-                    <button class="grid-button-color" id="blue">Blue</button>
-                    <button class="grid-button-color" id="green">Green</button>
-                    <button class="grid-button-color" id="party">Party</button>
+                    <label for="color">Select a color</label>
+                    <input
+                        data-shading="none"
+                        id="color-select"
+                        type="color"
+                        name="color"
+                    />
+                </div>
+
+                <div class="grid-size-buttons">
+                    <button class="confirm" id="confirm">Confirm</button>
+                    <button class="reset" id="reset">Reset</button>
                 </div>
                 <!-- </div> -->
             </div>
@@ -38,9 +44,3 @@
         <script src="./js/script.js"></script>
     </body>
 </html>
-
-<!-- <button class="grid-button-size" id="grid-4">4 x 4</button>
-                        <button class="grid-button-size" id="grid-8">8 x 8</button>
-                        <button class="grid-button-size" id="grid-16">16 x 16</button>
-                        <button class="grid-button-size" id="grid-32">32 x 32</button>
-                        <button class="grid-button-size" id="grid-64">64 x 64</button> -->

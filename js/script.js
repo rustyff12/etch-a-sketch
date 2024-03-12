@@ -1,39 +1,13 @@
 const gridContainer = document.querySelector(".grid-container");
-let sketchDivs = document.querySelectorAll(".grid-item");
-const gridButtonSize = document.querySelectorAll(".grid-button-size");
 const resetButton = document.querySelector(".reset");
-const gridButtonColor = document.querySelectorAll(".grid-button-color");
-/* const grid4 = document.querySelector("#grid-4");
-const grid8 = document.querySelector("#grid-8");
-const grid16 = document.querySelector("#grid-16");
-const grid32 = document.querySelector("#grid-32");
-const grid64 = document.querySelector("#grid-64"); */
+const colorSelect = document.querySelector("#color-select");
 
 const div = document.createElement("div");
-let currentGridSze = 0;
-let backgroundClr = "var(--clr-black)";
+let currentGridSze = 50;
+let backgroundClr = `var(--clr-black)`;
+let mouseDown = false;
+
 // Grid size
-/* gridButtonSize.forEach((button) => {
-    button.addEventListener("click", (e) => {
-        const size = e.target.id;
-        if (size === "grid-4") {
-            dynamicGrid(4);
-            currentGridSze = 4;
-        } else if (size === "grid-8") {
-            dynamicGrid(8);
-            currentGridSze = 8;
-        } else if (size === "grid-16") {
-            dynamicGrid(16);
-            currentGridSze = 16;
-        } else if (size === "grid-32") {
-            dynamicGrid(32);
-            currentGridSze = 32;
-        } else if (size === "grid-64") {
-            dynamicGrid(64);
-            currentGridSze = 64;
-        }
-    });
-}); */
 const gridSize = document.querySelector("#grid-size");
 gridSize.addEventListener("change", (e) => {
     const gridSizeText = document.querySelector("#grid-size-text");
@@ -64,34 +38,33 @@ function dynamicGrid(num) {
 }
 
 // Change color
-gridButtonColor.forEach((button) => {
-    button.addEventListener("click", (e) => {
-        const value = e.target.id;
-        if (value === "black") {
-            backgroundClr = "var(--clr-black)";
-        } else if (value === "red") {
-            backgroundClr = "var(--clr-red)";
-        } else if (value === "blue") {
-            backgroundClr = "var(--clr-blue)";
-        } else if (value === "green") {
-            backgroundClr = "var(--clr-green)";
-        } /*  else if (value === "party") {
-            partyColorFunction();
-        } */
-    });
+colorSelect.addEventListener("change", (e) => {
+    const value = e.target.value;
+    backgroundClr = value;
+    console.log(value);
 });
 
 // Listen for mouse event
-gridContainer.addEventListener("mouseover", (e) => {
-    const hoverDiv = e.target;
-    if (hoverDiv.classList.contains("grid-item")) {
-        hoverDiv.style.backgroundColor = backgroundClr;
-    }
+gridContainer.addEventListener("mousedown", () => {
+    mouseDown = true;
+    document.addEventListener("mousemove", mouseMoveHandler);
 });
 
+gridContainer.addEventListener("mouseup", () => {
+    mouseDown = false;
+    document.removeEventListener("mousemove", mouseMoveHandler);
+});
+const mouseMoveHandler = (e) => {
+    if (mouseDown) {
+        const hoverDiv = e.target;
+        if (hoverDiv.classList.contains("grid-item")) {
+            hoverDiv.style.backgroundColor = backgroundClr;
+        }
+    }
+};
 // Reset button
 resetButton.addEventListener("click", () => {
-    backgroundClr = "var(--clr-black)";
+    // backgroundClr = "var(--clr-black)";
     dynamicGrid(currentGridSze);
 });
 
