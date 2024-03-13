@@ -5,7 +5,7 @@ const colorSelect = document.querySelector("#color-select");
 const div = document.createElement("div");
 let currentGridSze = 50;
 let backgroundClr = `var(--clr-black)`;
-let mouseDown = false;
+let inputActive = false;
 
 // Grid size
 const gridSize = document.querySelector("#grid-size");
@@ -46,22 +46,55 @@ colorSelect.addEventListener("change", (e) => {
 
 // Listen for mouse event
 gridContainer.addEventListener("mousedown", () => {
-    mouseDown = true;
+    inputActive = true;
     document.addEventListener("mousemove", mouseMoveHandler);
 });
 
 gridContainer.addEventListener("mouseup", () => {
-    mouseDown = false;
+    inputActive = false;
     document.removeEventListener("mousemove", mouseMoveHandler);
 });
 const mouseMoveHandler = (e) => {
-    if (mouseDown) {
+    if (inputActive) {
         const hoverDiv = e.target;
         if (hoverDiv.classList.contains("grid-item")) {
             hoverDiv.style.backgroundColor = backgroundClr;
         }
     }
 };
+
+// Touch pad event
+const touchPadHandler = (touch) => {
+    // Get the bounding rectangle of the grid container
+    const gridContainerRect = document.body.getBoundingClientRect();
+    // Calculate x pos relative to container
+    const touchXRelative = touch.clientX - gridContainerRect.left;
+    // Calculate y pos relative to container
+    const touchYRelative = touch.clientY - gridContainerRect.top;
+    const touchDiv = document.elementFromPoint(touchXRelative, touchYRelative);
+    if (touchDiv && touchDiv.classList.contains("grid-item")) {
+        touchDiv.style.backgroundColor = backgroundClr;
+    }
+};
+
+gridContainer.addEventListener("touchstart", (e) => {
+    inputActive = true;
+    if (e.target.closest(".grid-container")) {
+        touchPadHandler(e.touches[0]);
+    }
+});
+gridContainer.addEventListener("touchend", () => {
+    inputActive = false;
+});
+gridContainer.addEventListener("touchmove", (e) => {
+    if (inputActive) {
+        e.preventDefault();
+        for (const touch of e.touches) {
+            touchPadHandler(touch);
+        }
+    }
+});
+
 // Reset button
 resetButton.addEventListener("click", () => {
     // backgroundClr = "var(--clr-black)";
